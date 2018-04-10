@@ -1,13 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Geomanser
- * Date: 08.04.2018
- * Time: 9:47
- */
-print_r($_POST);
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -28,19 +18,20 @@ print_r($_POST);
 
   <body>
 
-    <!-- Begin page content -->
-    <main role="main" class="container">
-      <h1 class="mt-5">Sticky footer</h1>
-      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
-    <?php
-        foreach ($_POST as $key=>$value){
-
-        }
-    ?>
-
-        <p>Use <a href="../sticky-footer-navbar">the sticky footer with a fixed navbar</a> if need be, too.</p>
-    </main>
-
+  <table class="table table-dark">
+      <thead>
+      <tr>
+          <th scope="col">Email</th>
+          <th scope="col">Password</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td> <?php echo $_POST['inputEmail']; ?></td>
+          <td><?php echo $_POST['password']; ?></td>
+      </tr>
+      </tbody>
+  </table>
     <footer class="footer">
       <div class="container">
         <span class="text-muted">Place sticky footer content here.</span>
