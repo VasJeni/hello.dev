@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<a href="loginform/loginform.php">Login Form</a>
+<a href="loginform/loginform.php">enter</a>
 <br />
 <a href="calculate/calculate.php"> Calculate</a>
 
