@@ -70,40 +70,42 @@ function postValidationMathOperation ($areInteger) {
         <tr>
             <td>
                 <?php
-               // $a = postValidationToInt($_POST['firstValue']);
-                //var_dump($a);
-
-                //echo '<br>'.var_dump($_POST);
                 if (
-                        !empty($_POST)
-                        && (postValidationToInt($_POST['firstValue']))
-                        && (postValidationToInt($_POST['secondValue']))
-                        && (postValidationMathOperation($_POST['operation']))
-                        && (strlen($_POST['operation'])==1)) {
-                    //echo 'условие выполнено';
-                    $firstValue = $_POST['firstValue'];
-                    //echo 1;
+                        !empty($_POST) && (is_numeric($_POST['firstValue'])) &&  (is_numeric($_POST['secondValue'])) && (postValidationMathOperation($_POST['operation'])) && (strlen($_POST['operation'])==1)) {
+//                        && (postValidationToInt($_POST['firstValue']))            //самописный вариант
+//                        && (postValidationToInt($_POST['secondValue']))           //
+//                        && (postValidationMathOperation($_POST['operation']))     //самописный вариант
+//                        && (strlen($_POST['operation'])==1)) {                    //самописный вариант
+                    $firstValue = $_POST['firstValue'];                           //
                     $secondValue = $_POST['secondValue'];
-                    //echo 2;
-                    if ($_POST['operation'] == '*') {
-                        $result = $firstValue * $secondValue;
-                    } elseif (($_POST['operation'] == '/')){
-                        if (($secondValue) == 0){
+                    switch ($_POST['operation']) {
+                        case "-" :
+                            $result = $firstValue - $secondValue;
+                            break;
+                        case "+":
+                            $result = $firstValue + $secondValue;
+                            break;
+                        case "*":
+                            $result = $firstValue * $secondValue;
+                            break;
+                        case "/":
+                            if (($secondValue) == 0){
                             $result = 'error';
-                         //   var_dump($result);
-                        } else {
-                        $result = $firstValue / $secondValue;}
-                    } elseif (($_POST['operation'] == '+')){
-                        $result = $firstValue + $secondValue;
-                    } elseif (($_POST['operation'] == '-')){
-                        $result = $firstValue - $secondValue;
-                    } elseif (($_POST['operation'] == '%')){
-                        $result = $firstValue % $secondValue;
-                    } elseif (($_POST['operation'] == '^')){
-                        $result = $firstValue ** $secondValue;
+                            break;
+                            } else {
+                            $result = $firstValue / $secondValue;}
+                            break;
+                        case "%":
+                            $result = $firstValue % $secondValue;
+                            break;
+                        case "^":
+                            $result = $firstValue ** $secondValue;
+                            break;
                     }
-                    if (($result == 0) && ($result !='error')){echo '0'; }
-                   // var_dump($result);
+
+                    if ($result === 0) {
+                        $result = '0';
+                    }
 
                 } else {
                     if ( (isset($_POST['firstValue'])) && !empty((postValidationToInt($_POST['firstValue'])))){
@@ -116,8 +118,8 @@ function postValidationMathOperation ($areInteger) {
 
                 ?>
 
-            <?php if (!empty($result))
-                {echo $result;}
+            <?php
+                 echo $result;
                 ?>
             </td>
         </tr>
