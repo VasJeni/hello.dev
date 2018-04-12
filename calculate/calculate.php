@@ -1,4 +1,3 @@
-
 <?php
 function postValidationToInt ($areInteger) {
     $arrayOfNumber = array('-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',);
@@ -6,7 +5,6 @@ function postValidationToInt ($areInteger) {
     for ($i = 0; $i < strlen($areInteger); $i++) {
         for ($ii = 0; $ii < count($arrayOfNumber); $ii++) {
             if ($areInteger[$i] === $arrayOfNumber[$ii]) {
-                //echo $controlSum;
                 $controlSum++;
             }
         }
@@ -23,7 +21,6 @@ function postValidationMathOperation ($areInteger) {
     for ($i = 0; $i < strlen($areInteger); $i++) {
         for ($ii = 0; $ii < count($arrayOfNumber); $ii++) {
             if ($areInteger[$i] === $arrayOfNumber[$ii]) {
-                //echo $controlSum;
                 $controlSum++;
             }
         }
@@ -35,9 +32,6 @@ function postValidationMathOperation ($areInteger) {
     }
 }
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +70,7 @@ function postValidationMathOperation ($areInteger) {
 //                        && (postValidationToInt($_POST['secondValue']))           //
 //                        && (postValidationMathOperation($_POST['operation']))     //самописный вариант
 //                        && (strlen($_POST['operation'])==1)) {                    //самописный вариант
-                    $firstValue = $_POST['firstValue'];                           //
+                    $firstValue = $_POST['firstValue'];
                     $secondValue = $_POST['secondValue'];
                     switch ($_POST['operation']) {
                         case "-" :
@@ -102,11 +96,9 @@ function postValidationMathOperation ($areInteger) {
                             $result = $firstValue ** $secondValue;
                             break;
                     }
-
                     if ($result === 0) {
                         $result = '0';
                     }
-
                 } else {
                     if ( (isset($_POST['firstValue'])) && !empty((postValidationToInt($_POST['firstValue'])))){
                         echo 'invalid first value';
@@ -115,15 +107,14 @@ function postValidationMathOperation ($areInteger) {
                         echo 'invalid second value';
                     }
                 }
-
                 ?>
-
             <?php
+                if (!empty($result)){
                  echo $result;
+                }
                 ?>
             </td>
         </tr>
     </table>
 </body>
-
 </html>
