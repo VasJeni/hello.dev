@@ -6,6 +6,27 @@
  * Time: 6:41
  */
 
-require 'validation.php';
+//qualification
 
-fdsfsdf
+ $price =100;
+
+ require "validation.php" ;
+ require "index.php";
+
+switch ($country){
+    case 'Туречина' :
+        $qualification = 0;
+        break;
+    case 'Єгипет' :
+        $qualification = 0.1;
+        break;
+    case 'Італія':
+        $qualification = 0.2;
+        break;
+
+
+$totalCost = ($price  + ($price*$qualification)) - (($price  + ($price*$qualification))/$discount);
+}
+if (!$totalCost){
+    $totalCost='0';
+}
