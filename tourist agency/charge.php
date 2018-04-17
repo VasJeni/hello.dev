@@ -47,3 +47,4 @@ function charge($arr): int {
 function charge2(int $param) {
     //
 }
+
