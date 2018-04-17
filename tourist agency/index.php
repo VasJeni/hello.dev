@@ -24,36 +24,14 @@
         </form>
         <?php
 
-        if (isset($_POST)) {
-            $a = $_POST;
-            switch ($a['country']) {
-                case "Туречина":
-                    $index = 0;
-                    break;
-                case  "Єгипет" :
-                    $index = 0.1;
-                    break;
-                case "Італія" :
-                    $index = 0.2;
-            }
-            $discount = 0;
-            $price = 100;
-            $numberDays = $a['numberDays'];
-            $priceWithIndex = $price + ($price * $index);
-            $pricePlusDays = $priceWithIndex * $numberDays;
-            if ($a['discount'] == 'on') {
-                $discount =$pricePlusDays *0.05;
-            } else {
-                $discount=0;
-            }
+        echo '<br>';
 
-            $totalCost = (($price *$numberDays)  + ($price*$numberDays*$index) - $discount);
+        require 'validation.php';
+        require 'charge.php';
 
-            echo '<br>'.($totalCost);
-
-
-        }
-
+        if (isset($_POST) && (! empty($_POST))) {
+                    $data = checking($_POST);
+                    echo charge($data);}
 
 
 
@@ -63,6 +41,3 @@
 
 
         ?>
-    </body>
-</html>
-
