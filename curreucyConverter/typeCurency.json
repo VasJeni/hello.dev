@@ -1,0 +1,20 @@
+{
+  "UAH" :
+  {
+    "id" : 1,
+    "index" : 1,
+    "name" : "UAH"
+  },
+  "dollar":
+  {
+    "id" : 2,
+    "index": 26,
+    "name" : "dollar"
+  },
+  "euro":
+  {
+    "id" : 3,
+    "index" : 32,
+    "name" : "euro"
+  }
+}
