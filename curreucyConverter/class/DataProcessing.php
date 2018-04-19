@@ -1,14 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Vasilyev
- * Date: 18.04.2018
- * Time: 10:39
- */
-
-//namespace DataProcessing;
-$arr = [12,4,6,4214,654646, '<dfsfsdfsf'];
-
 class DataProcessing {
 
     public function process($array) {
@@ -19,8 +9,16 @@ class DataProcessing {
             return $array;
         }
     }
-}
+    var $normal = true;
+    var $error = [];
 
-$one = new DataProcessing();
-$array = $one->process($arr);
-print_r($array);
+    public function checkAllNumbers($arr) {
+        foreach ($arr as $key => $value) {
+            if (!is_numeric($value)) {
+                $this->normal = false;
+            }
+            array_push($this->error, $key);
+        }
+        return $arr;
+    }
+}
