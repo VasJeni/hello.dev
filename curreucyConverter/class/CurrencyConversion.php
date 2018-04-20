@@ -8,6 +8,16 @@
 
 //namespace CurrencyConversion;
 
-class CurrencyConversion {
+class CurrencyConversion
+{
+    var $total = 0;
+    public function Conversion($arrJsonWithcurrency, $firstCurrency, $secondCurrency)
+    {
+       return $this->total = (
+           $arrJsonWithcurrency['$firstCurrency']['index']
+           / 26
+           * $arrJsonWithcurrency['$secondCurrency']['index']);
+    }
+
 
 }

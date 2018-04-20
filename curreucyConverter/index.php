@@ -16,7 +16,7 @@ echo '<pre>';
 echo "</pre>";
 echo "<br />";
 echo '<pre>';
-//echo var_dump(json_decode($jsone, true));
+$json = json_decode($jsone, true);
 echo "</pre>";
 
 
