@@ -9,15 +9,15 @@ class DataProcessing {
             return $array;
         }
     }
+
+
     var $normal = true;
-    var $error = [];
 
     public function checkAllNumbers($arr) {
         foreach ($arr as $key => $value) {
-            if (!is_numeric($value)) {
+            if ((!is_numeric($value)) || ($value<0)) {
                 $this->normal = false;
             }
-            array_push($this->error, $key);
         }
         return $arr;
     }

@@ -13,8 +13,8 @@ class FileProcessing {
     var $arr = [];
     var $JsonWay;
 
-    public function readJsone($way): array {
-        $this->arr=(file_get_contents($way));
+    public function readJsone($path): array {
+        $this->arr=(file_get_contents($path));
         $this->arr= (json_decode($this->arr,true ));
         return $this->arr;
     }

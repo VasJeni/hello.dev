@@ -11,13 +11,11 @@
 class CurrencyConversion
 {
     var $total = 0;
-    public function Conversion($arrJsonWithcurrency, $firstCurrency, $secondCurrency)
+    public function Conversion($arrJsonWithcurrency, $firstCurrency, $secondCurrency, $amount)
     {
-       return $this->total = (
-           $arrJsonWithcurrency['$firstCurrency']['index']
-           / 26
-           * $arrJsonWithcurrency['$secondCurrency']['index']);
+       #$this->total = ($arrJsonWithcurrency["$secondCurrency"]["index"]/($amount * $arrJsonWithcurrency["$firstCurrency"]['index']));
+       $this->total = ($arrJsonWithcurrency["$firstCurrency"]["index"]*$amount) / ($arrJsonWithcurrency[$secondCurrency]["index"]);
+
+       return $this->total;
     }
-
-
 }
