@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<a href="loginform/loginform.php">Enter form</a>
-<br />
-<a href="calculate/calculate.php"> Calculate</a>
-</body>
-</html>
+<?php
+$question = " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet atque commodi consectetur eos esse ex explicabo illo impedit in neque nihil odit optio perferendis provident, qui quidem reprehenderit. Perferendis, rerum.";
+require 'View/pageWithQuestion.php';
